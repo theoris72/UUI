@@ -1,0 +1,26 @@
+FINAL2 = [x[1] for x in FINAL]
+FINAL2.insert(0,"TARGET")
+FINAL3 = [x[1] for x in FINAL] 
+BoW_CSV = [FINAL2] 
+
+print(combined_as_list_of_words[:2])
+CLL=[]
+for fragment in combined_as_list_of_lists:
+    newFragment=[]
+    for word in fragment:
+        if word.lower() in FINAL3:
+            newWord=word.lower()
+            newFragment.append(newWord)
+    CLL.append(newFragment)
+    #to nam dodaje song na kraj liste, valjda dodaje song onda kad ju ranije nismo imali na listi i označava da se ovo odnosi na song dio fragmenta
+print (CLL[:2])
+tr_lista=[]            
+for i in range(len(train_targets)):
+    new_row = train_targets.values.tolist()[i]
+    for WORD in FINAL3:
+        if WORD in CLL[i]:
+            new_row.append(1)
+#možemo izbaciti cijeli idući dio i ići odmah na te_lista ili ga ostaviti
+            new_row.append(0)
+len(new_row)==len(FINAL2)
+print(new_row)
